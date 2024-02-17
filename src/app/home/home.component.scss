@@ -1,0 +1,32 @@
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+main {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+}
+
+p {
+  margin: 20px;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.section-buttons{
+  display: flex;
+  flex-direction: column;
+  button{
+    margin-top: 10px;
+
+  }
+}

@@ -1,0 +1,23 @@
+@use '@angular/material' as mat;
+@use 'light-theme' as lightTheme;
+@use "dark-theme" as darkTheme;
+
+@use "../app/home/home.component.theme" as homeComponent;
+
+@include mat.core();
+mat.$theme-ignore-duplication-warnings: true;
+
+@mixin create-dark-theme() {
+
+  @include mat.all-component-themes(darkTheme.$dark-theme);
+  @include homeComponent.app-home-theme(darkTheme.$dark-theme);
+
+}
+
+@mixin create-light-theme() {
+
+  @include mat.all-component-themes(lightTheme.$light-theme);
+  @include homeComponent.app-home-theme(lightTheme.$light-theme);
+}
+
+
