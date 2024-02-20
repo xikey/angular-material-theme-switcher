@@ -3,7 +3,7 @@
 @mixin app-home-theme($theme){
 
   .container-home{
-    background-color: mat.get-theme-color($theme, background, card);
+    background-color: mat.get-theme-color($theme, background,background);
   }
 }
 

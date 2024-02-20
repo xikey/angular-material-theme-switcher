@@ -1,23 +1,55 @@
 @use '@angular/material' as mat;
 @use 'light-theme' as lightTheme;
 @use "dark-theme" as darkTheme;
-
+@use 'sass:map';
 @use "../app/home/home.component.theme" as homeComponent;
 
 @include mat.core();
-mat.$theme-ignore-duplication-warnings: true;
+mat.$theme-ignore-duplication-warnings: true
+
+;
 
 @mixin create-dark-theme() {
 
-  @include mat.all-component-themes(darkTheme.$dark-theme);
-  @include homeComponent.app-home-theme(darkTheme.$dark-theme);
+  $theme: map.deep-merge(darkTheme.$dark-theme, (
+    color:
+    (background:
+    (background:#1f1a24,)
+    )
+  )
+  );
+
+  mat-card-content,mat-card-title{
+    color: #f0f0f0;
+  }
+
+
+  @include mat.all-component-themes($theme);
+  @include homeComponent.app-home-theme($theme);
+  @include homeComponent.app-home-theme($theme);
+  @include mat.strong-focus-indicators();
+  @include mat.strong-focus-indicators-theme(lightTheme.$light-theme);
+
 
 }
 
 @mixin create-light-theme() {
 
-  @include mat.all-component-themes(lightTheme.$light-theme);
-  @include homeComponent.app-home-theme(lightTheme.$light-theme);
+  $theme: map.deep-merge(lightTheme.$light-theme, (
+    color:
+    (background:
+    (background:#f0f0f0,)
+    )
+  )
+  );
+
+
+  @include mat.all-component-themes($theme);
+  @include homeComponent.app-home-theme($theme);
+  @include mat.strong-focus-indicators-theme($theme);
+  @include mat.strong-focus-indicators();
+  @include mat.strong-focus-indicators-theme(darkTheme.$dark-theme);
+
 }
 
 

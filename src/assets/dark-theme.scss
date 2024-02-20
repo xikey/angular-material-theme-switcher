@@ -1,10 +1,13 @@
 @use '@angular/material' as mat;
 
+
+
 // Define a dark theme
 $dark-theme: mat.define-dark-theme((
   color: (
     primary: mat.define-palette(mat.$pink-palette),
     accent: mat.define-palette(mat.$blue-grey-palette),
+
   ),
   // Only include `typography` and `density` in the default dark theme.
   typography: mat.define-typography-config(),
